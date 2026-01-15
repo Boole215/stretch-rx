@@ -1,0 +1,47 @@
+{
+  "$ref": "#/definitions/stretches",
+  "definitions": {
+    "stretches": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "preparation": {
+          "type": "string"
+        },
+        "execution": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "example": {
+          "type": "string"
+        },
+        "exampleAlt": {
+          "type": "string"
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "preparation",
+        "execution",
+        "example",
+        "exampleAlt",
+        "targets"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

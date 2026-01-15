@@ -1,0 +1,29 @@
+---
+
+import Banner from '../components/Banner.astro';
+import { Image } from 'astro:assets';
+const { title, preparation, execution, targets, example, exampleAlt } = Astro.props;
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <Banner />
+    <h1>{title}</h1>
+    <Image src={example} alt={exampleAlt}/>
+    <h2>Preparation</h2>
+    <p>{preparation}</p>
+    <h2>Execution</h2>
+    <p>{execution}</p>
+    <h2>Muscle groups targeted</h2> 
+    <ul>
+      {targets.map((muscleGroup) => (
+	<li>{muscleGroup}</li>
+      ))}
+    </ul>
+  </body>
+</html>

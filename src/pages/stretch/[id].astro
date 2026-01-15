@@ -1,0 +1,23 @@
+---
+import { CollectionEntry, getCollection, render} from 'astro:content';
+
+import StretchLayout from '../../layouts/Stretch.astro';
+
+export async function getStaticPaths() {
+  const stretches = await getCollection('stretches');
+  console.log(stretches)
+  return stretches.map( stretch => ({
+    params: { id: stretch.id },
+    props: { stretch }
+  }));
+}
+
+type Props = CollectionEntry<"stretches">
+
+const { stretch } = Astro.props;
+const { Content } = await render(stretch)
+---
+
+<StretchLayout {...stretch.data}>
+  <Content/>
+</StretchLayout>
