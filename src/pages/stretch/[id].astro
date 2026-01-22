@@ -5,7 +5,6 @@ import StretchLayout from '../../layouts/Stretch.astro';
 
 export async function getStaticPaths() {
   const stretches = await getCollection('stretches');
-  console.log(stretches)
   return stretches.map( stretch => ({
     params: { id: stretch.id },
     props: { stretch }

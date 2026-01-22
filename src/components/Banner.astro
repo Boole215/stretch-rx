@@ -1,6 +1,15 @@
 ---
+import { Image } from 'astro:assets';
+import Logo from "../assets/mannequin-stretching.png";
 ---
-
+<style>
+  img{
+    max-width: 100px;
+    height: auto;
+  }
+</style>
 <nav>
-  <a href="#"> Home </a>
+  <a href="/stretch-rx">
+    <Image id="logo" src={Logo} alt="A wooden mannequin stretching">
+  </a>
 </nav>

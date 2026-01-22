@@ -5,4 +5,12 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://boole215.github.io',
   base: '/stretch-rx',
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        limitInputPixels: false,
+      },
+    },
+  },  
 });

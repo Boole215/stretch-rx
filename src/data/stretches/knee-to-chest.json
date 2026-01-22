@@ -1,8 +1,8 @@
 {
-  "title" : "Knee-to-chest",
-  "preparation": "Lie on your back on a comfortable surface with your knees bent and feet flat on the floor.",
-  "execution": "Gently bring one knee up toward your chest, using both hands to pull it in closer. Keep the other foot flat on the floor. Hold the position for 15-30 seconds, feeling the stretch in your lower back and glutes. Slowly release the first leg and repeat with the other leg.",
-  "example": "../../assets/knee-to-chest.gif",
-  "exampleAlt": "Gif of woman doing knee-to-chest movement",
-  "targets": ["hip flexors", "glutes", "lower back", "hamstrings"]
+    "title" : "Knee-to-chest",
+    "preparation": "Lie on your back on a comfortable surface with your knees bent and feet flat on the floor.",
+    "execution": "Gently bring one knee up toward your chest, using both hands to pull it in closer. Keep the other foot flat on the floor. Hold the position for 15-30 seconds, feeling the stretch in your lower back and glutes. Slowly release the first leg and repeat with the other leg.",
+    "example": "../../assets/knee-to-chest.gif",
+    "exampleAlt": "Gif of woman doing knee-to-chest movement",
+    "targets": ["hip-flexors", "glutes", "lower-back", "hamstrings"]
 }
