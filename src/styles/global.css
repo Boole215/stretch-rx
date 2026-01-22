@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+
+@theme {
+    --font-source-sans-3: "Source Sans 3", sans-serif;
+}
+
+@layer base {
+    @font-face {
+	font-family: "Source Sans 3";
+    }
+    html{
+	font-size: 20px;
+	font-weight: 300;
+    }
+    h1{
+	@apply text-5xl font-bold;
+    }
+    h2{
+	@apply text-2xl font-bold;
+    }
+    h3{
+	@apply text-lg font-bold;
+    }
+    .main{
+	@apply flex flex-col;
+    }
+
+    #title{
+	padding-botton: 100%;
+    }
+
+    #movement_example{
+	max-width: 400px;
+	height: 300px;
+	float:left;
+    }
+
+    #content{
+	align-items: center;
+	text-wrap: pretty;
+    }
+    
+    #image_content{
+	@apply flex flex-row gap-x-4;
+    }
+    
+    .infobox{
+	height: auto;
+	width: 400px;
+    }
+    #instruction_info{
+	@apply flex flex-row;
+    }
+}

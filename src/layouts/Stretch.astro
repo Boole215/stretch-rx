@@ -1,8 +1,9 @@
 ---
 
 import Banner from '../components/Banner.astro';
+import '../styles/global.css';
 import { Image } from 'astro:assets';
-const { title, preparation, execution, targets, example, exampleAlt } = Astro.props;
+const { title, preparation, comments, execution, targets, example, exampleAlt } = Astro.props;
 
 ---
 
@@ -10,27 +11,47 @@ const { title, preparation, execution, targets, example, exampleAlt } = Astro.pr
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-     img {
-       max-width: 400px;
-       width: 100%;
-       height: auto;
-     }
-    </style>
   </head>
   <body>
     <Banner />
-    <h1>{title}</h1>
-    <Image src={example} alt={exampleAlt}/>
-    <h2>Preparation</h2>
-    <p>{preparation}</p>
-    <h2>Execution</h2>
-    <p>{execution}</p>
-    <h2>Muscle groups targeted</h2> 
-    <ul>
-      {targets.map((muscleGroup) => (
-	<li>{muscleGroup}</li>
-      ))}
-    </ul>
+    <div class="main">
+      <h1 class="pb-10 self-center">{title}</h1>
+      <div class="flex flex-row items-start gap-x-4 pl-70" id="content">
+	<div class="flex flex-col items-start gap-3">
+	  <div id="image_content">
+	    <Image id="movement_example" src={example} alt={exampleAlt}/>	  
+	  </div>
+	  <div>
+	    <div id="instruction_info">
+	      <div class="flex flex-col gap-2">
+		<h2>Instructions</h2>
+		<div class="infobox">
+		  <h3>Preparation</h3>
+		  <p>{preparation}</p>
+		</div>
+		<div class="infobox">
+		  <h3>Execution</h3>
+		  <p>{execution}</p>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="flex flex-col items-start gap-3">
+	  <div class="infobox" style={{height:"300px"}}>
+	    <h2>Comments</h2>
+	    <p>{comments ?? "None at the moment."}</p>
+	  </div>
+	  <div>
+	    <h2>Muscle groups targeted</h2> 
+	    <ul class="list-disc pl-10">
+	      {targets.map((muscleGroup) => (
+          	<li>{muscleGroup}</li>
+              ))}
+	    </ul>	    
+	  </div>
+	</div>
+      </div>
+    </div>
   </body>
 </html>

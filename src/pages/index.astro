@@ -1,5 +1,24 @@
 ---
 import Banner from '../components/Banner.astro';
+import '../styles/global.css';
+import { getCollection } from 'astro:content';
+
+const backStretches = await getCollection('stretches', ({ data }) => {
+  return data.targets.includes("back")
+});
+const legStretches = await getCollection('stretches', ({ data }) => {
+  return data.targets.includes("legs")
+});
+const chestStretches = await getCollection('stretches', ({ data }) => {
+  return data.targets.includes("chest")
+});
+const armStretches = await getCollection('stretches', ({ data }) => {
+  return data.targets.includes("arms")
+});
+const shoulderStretches = await getCollection('stretches', ({ data }) => {
+  return data.targets.includes("shoulder")
+});
+
 ---
 
 
@@ -10,13 +29,61 @@ import Banner from '../components/Banner.astro';
   </head>
   <body>
     <Banner />
-    <p> Welcome to Stretch-Rx, an easily accesible library of stretches targeting specific muscle groups.</p>
-      <ul>
-	<li><a href="/stretch-rx/back/">Back</a></li>
-	<li><a href="/stretch-rx/chest/">Chest</a></li>
-	<li><a href="#">Core</a></li>
-	<li><a href="/stretch-rx/arms/">Arms</a></li>
-	<li><a href="/stretch-rx/legs/">Legs</a></li>
-      </ul>
+    <div class="main items-center">
+      <div>
+	<p> Welcome to Stretch-Rx, an easily accesible library of stretches targeting specific muscle groups.</p>
+	<div class="flex flex-row justify-center gap-20">
+	  <div class="flex flex-col">
+	    <div>
+	      <h2> Back </h2>
+	      <ul class="list-disc pl-5">
+		{backStretches.map(stretch => (
+                   <li>
+		     <a href={`/stretch-rx/stretch/${stretch.id}`}>{stretch.data.title}</a>
+		   </li>
+                ))}
+	    </div>
+	    <div>
+	      <h2> Chest </h2>
+	      <ul class="list-disc pl-5">
+		{chestStretches.map(stretch => (
+                   <li>
+		     <a href={`/stretch-rx/stretch/${stretch.id}`}>{stretch.data.title}</a>
+		   </li>
+                ))}	      
+	    </div>
+	  </div>
+	  <div class="flex flex-col">
+	    <div>
+	      <h2> Arms </h2>
+	      <ul class="list-disc pl-5">
+		{armStretches.map(stretch => (
+                   <li>
+		     <a href={`/stretch-rx/stretch/${stretch.id}`}>{stretch.data.title}</a>
+		   </li>
+                ))}
+	    </div>
+	    <div>
+	      <h2> Shoulders </h2>
+	      <ul class="list-disc pl-5">
+		{shoulderStretches.map(stretch => (
+                   <li>
+		     <a href={`/stretch-rx/stretch/${stretch.id}`}>{stretch.data.title}</a>
+		   </li>
+                ))}
+	    </div>
+	    <div>
+	      <h2> Legs </h2>
+	      <ul class="list-disc pl-5">
+		{legStretches.map(stretch => (
+                   <li>
+		     <a href={`/stretch-rx/stretch/${stretch.id}`}>{stretch.data.title}</a>
+		   </li>
+                ))}	      
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
   </body>
 </html>
